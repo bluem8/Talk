@@ -76,8 +76,28 @@ namespace TalkClient
             _server.DataReceived += _server_DataReceived;
             _server.Disconnected += _server_Disconnected;
             _server.ServerShutdown += _server_ServerShutdown;
+            _server.ConnectionError += _server_ConnectionError;
             _server.BpsUpdated += _server_BpsUpdated;
             _server.Connect(new System.Net.IPEndPoint(IPAddress.Parse(addr), port), ThisId, username);
+        }
+
+        private void _server_ConnectionError(object sender, IPEndPoint e)
+        {
+            System.Windows.MessageBox.Show("Connection lost to "+ _server.ConnectedAddress.ToString());
+            ChannelList = new Packet_ChannelList(null);
+            UpdateUi();
+            BuildContextMenu();
+            _server = null;
+
+            try
+            {
+
+                this.Dispatcher.Invoke(new Action(() =>
+                {
+                    this.Close();
+                }));
+            }
+            catch (Exception ex) { }
         }
 
         private void _server_BpsUpdated(object sender, object[] e)

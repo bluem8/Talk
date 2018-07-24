@@ -140,6 +140,14 @@ namespace TalkClient
             BytesSent = 0;
         }
 
+        void CheckConnection()
+        {
+            if(!TcpSocket.Connected)
+            {
+                Debug.WriteLine("Connection lost");
+            }
+        }
+
         void SetupUdp()
         {
             VoiceConnection = new VoiceSocket(this);
@@ -186,6 +194,10 @@ namespace TalkClient
                     DataReceived(null, _args);
                 }catch(Exception e)
                 {
+                    if(e is System.IO.IOException)
+                    {
+                        ConnectionError(this, ConnectedAddress);
+                    }
                     Debug.WriteLine(e.Message);
                     StopConnection = true;
                 }

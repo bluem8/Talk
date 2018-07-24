@@ -86,8 +86,8 @@ namespace TalkClient
                     Array.Copy(data, 0, _fulldata, 36, data.Length);
                     
                     UdpSocket.Send(_fulldata, _fulldata.Length);
-                    Console.WriteLine(data.Length + "|" + Encoding.ASCII.GetByteCount(Owner.Id.ToString()) + "|" + _fulldata.Length);
-                    Console.WriteLine("Sent " + _fulldata.Length);
+                    //Console.WriteLine(data.Length + "|" + Encoding.ASCII.GetByteCount(Owner.Id.ToString()) + "|" + _fulldata.Length);
+                    //Console.WriteLine("Sent " + _fulldata.Length);
                 }
                 catch(Exception e)
                 {
