@@ -1,0 +1,58 @@
+﻿<Window x:Class="TalkClient.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TalkClient"
+        mc:Ignorable="d"
+        Title="Talk Client" Height="498.333" Width="604">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <RichTextBox Name="ConsoleText"  HorizontalAlignment="Center" Width="194" Margin="392,12,10,58">
+            <FlowDocument>
+                <Paragraph>
+                    <Run Text="RichTextBox"/>
+                </Paragraph>
+            </FlowDocument>
+        </RichTextBox>
+        <Button Name="DisconnectButton" Content="Disconnect" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="100" Click="Button_Click_1" Height="23" RenderTransformOrigin="0.94,0.652">
+
+        </Button>
+        <ListBox Name="ClientListBox" HorizontalAlignment="Left" Height="331" Margin="10,40,0,0" VerticalAlignment="Top" Width="372" SelectionChanged="ClientListBox_SelectionChanged">
+            <ListBox.BorderBrush>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Black" Offset="0"/>
+                    <GradientStop Color="White" Offset="1"/>
+                </LinearGradientBrush>
+            </ListBox.BorderBrush>
+        </ListBox>
+        <Button Content="Send Message" Name="ConnectButton2" HorizontalAlignment="Left" Margin="10,376,0,0" VerticalAlignment="Top" Width="99" Click="Button_Click_2" Height="33"/>
+        <Button Content="Send Image" HorizontalAlignment="Left" Margin="114,376,0,0" VerticalAlignment="Top" Width="80" Click="Button_Click_4" Height="33"/>
+        <Button Content="Create Channel" HorizontalAlignment="Left" Margin="285,12,0,0" VerticalAlignment="Top" Width="97" Click="Button_Click_6" RenderTransformOrigin="0.5,0.5">
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="0.635"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Button.RenderTransform>
+        </Button>
+        <TextBox Name="CreateChannelTextbox" HorizontalAlignment="Left" Height="23" Margin="121,12,0,0" TextWrapping="Wrap" Text="Channelxd" VerticalAlignment="Top" Width="154"/>
+        <Button Name="SettingsButton" Content="Settings" HorizontalAlignment="Left" Margin="302,376,0,0" VerticalAlignment="Top" Width="80" Height="33" Click="SettingsButton_Click"/>
+        <StackPanel Name="StatsPanel" Background="LightGray" Margin="0,414,10,0" HorizontalAlignment="Right" Width="576" Height="43" VerticalAlignment="Top">
+            <Grid Height="45">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="53*"/>
+                    <ColumnDefinition Width="11*"/>
+                </Grid.ColumnDefinitions>
+                <Label Name="AverageUploadLabel"  Content="0KBps" HorizontalAlignment="Left" Margin="94,14,0,5" VerticalAlignment="Center" RenderTransformOrigin="0.491,0.192"/>
+                <Label x:Name="AverageDownloadLabel" Content="0KBps" HorizontalAlignment="Left" Margin="10,14,0,5" VerticalAlignment="Center" RenderTransformOrigin="0.491,0.192"/>
+                <Label x:Name="TotalDownloadLabel" Content="0KBps" HorizontalAlignment="Left" Margin="470,14,0,5" VerticalAlignment="Center" RenderTransformOrigin="0.491,0.192" Grid.ColumnSpan="2"/>
+                <Label x:Name="TotalUploadLabel" Content="0KBps" HorizontalAlignment="Left" Margin="366,14,0,5" VerticalAlignment="Center" RenderTransformOrigin="0.491,0.192"/>
+            </Grid>
+        </StackPanel>
+    </Grid>
+</Window>

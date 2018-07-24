@@ -1,0 +1,20 @@
+﻿<Window x:Class="TalkServer.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TalkServer"
+        mc:Ignorable="d"
+        Title="Talk Server" Height="450" Width="800">
+    <Grid>
+        <RichTextBox Name="ConsoleTextbox" HorizontalAlignment="Left" Height="399" Margin="317,10,0,0" VerticalAlignment="Top" Width="465">
+            <FlowDocument>
+                <Paragraph>
+                    <Run Text="RichTextBox"/>
+                </Paragraph>
+            </FlowDocument>
+        </RichTextBox>
+        <ListBox Name="ClientListBox" HorizontalAlignment="Left" Height="399" Margin="10,10,0,0" VerticalAlignment="Top" Width="302"/>
+
+    </Grid>
+</Window>
